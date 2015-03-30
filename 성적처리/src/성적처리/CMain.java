@@ -1,4 +1,4 @@
-package 己利贸府V1;
+package 己利贸府;
 
 import DAOs.CGangjwaDAO;
 import DAOs.CGwamokDAO;
@@ -17,6 +17,7 @@ public class CMain {
 	public static void main(String[] args) {
 	//login
 		//view
+		//荐沥
 		CLoginView loginView = new CLoginView();
 		CMember member = loginView.login();					
 		//control	
