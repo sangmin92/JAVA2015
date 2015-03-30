@@ -1,0 +1,20 @@
+package entity;
+
+import java.util.ArrayList;
+
+public class CMember {
+	private String userID;
+	private String password;
+	private ArrayList<CMember> memberlist = new ArrayList<>();
+	
+	public String getUserID() {return userID;}
+	public void setUserID(String userID) {this.userID = userID;}
+	
+	public String getPassword() {return password;}
+	public void setPassword(String password) {this.password = password;}
+	public ArrayList<CMember> getMemberlist() {return memberlist;}
+	public void setMemberlist(ArrayList<CMember> memberlist) {this.memberlist = memberlist;}
+	
+	
+
+}
