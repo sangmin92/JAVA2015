@@ -1,8 +1,11 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CMember {
+public class CMember implements Serializable{
+	private static final long serialVersionUID = 1L; 
+	
 	private String userID;
 	private String password;
 	private ArrayList<CMember> memberlist = new ArrayList<>();

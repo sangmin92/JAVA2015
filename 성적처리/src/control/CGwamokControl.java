@@ -2,7 +2,6 @@ package control;
 
 import entity.CGwamok;
 
-
 public class CGwamokControl {
 	private CGwamok gwamok;
 

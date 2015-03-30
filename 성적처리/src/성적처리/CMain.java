@@ -1,7 +1,6 @@
 package 성적처리;
 
-import DAOs.CGangjwaDAO;
-import DAOs.CGwamokDAO;
+import DAOs.DAO;
 import control.CGangjwaControl;
 import control.CGwamokControl;
 import control.CLoginControl;
@@ -24,25 +23,29 @@ public class CMain {
 		CLoginControl loginControl = new CLoginControl();		
 		member = loginControl.login(member);
 		//entity
-	//	CMemberDAO memberDAO = new CMemberDAO();
-    //  memberDAO.write(member);
+		DAO memberDAO = new DAO();
+        memberDAO.write(member,"member");
+        member=(CMember)memberDAO.read("member");
 	//과목개설
 		CGwamokView gwamokView =new CGwamokView();
 		CGwamok gwamok = gwamokView.processGwamok();
 		CGwamokControl gwamokControl =new CGwamokControl();
 		gwamok = gwamokControl.processGwamok(gwamok);
 		
-		CGwamokDAO gwamokDAO = new CGwamokDAO();
-		gwamokDAO.write(gwamok);
-	//강좌개설
-		CGangjwaView gangjwaView =new CGangjwaView();
+		DAO gwamokDAO = new DAO();
+		gwamokDAO.write(gwamok,"gwamok");
+		
+		//부모클래스의 오브젝트를 자식클래스로 강제로 변경
+		gwamok=(CGwamok) gwamokDAO.read("gwamok");
+	//강좌개설	
+		CGangjwaView gangjwaView =new CGangjwaView();	
 		CGangjwa gangjwa = gangjwaView.processGangjwa();
 		CGangjwaControl gangjwaControl =new CGangjwaControl();
 		gangjwa = gangjwaControl.processGangjwa(gangjwa);
 		
-		CGangjwaDAO gangjwaDAO = new CGangjwaDAO();
-		gangjwaDAO.write(gangjwa);
-	    
+		DAO gangjwaDAO = new DAO();
+		gangjwaDAO.write(gangjwa,"gangjwa");
+		gangjwa=(CGangjwa) gwamokDAO.read("gangjwa");
 	
 	}
 }
