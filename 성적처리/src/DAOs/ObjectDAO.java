@@ -1,7 +1,7 @@
 package DAOs;
 import java.io.*;
 
-public class DAO {
+public class ObjectDAO implements IDAO {
 	
 		public Object read(String filename) {
 			Object object=null;

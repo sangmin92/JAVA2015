@@ -1,6 +1,8 @@
 package 성적처리;
 
-import DAOs.DAO;
+import DAOs.ObjectDAO;
+import DAOs.IDAO;
+import DAOs.ObjectDAO;
 import control.CGangjwaControl;
 import control.CGwamokControl;
 import control.CLoginControl;
@@ -23,7 +25,7 @@ public class CMain {
 		CLoginControl loginControl = new CLoginControl();		
 		member = loginControl.login(member);
 		//entity
-		DAO memberDAO = new DAO();
+		IDAO memberDAO = new ObjectDAO();
         memberDAO.write(member,"member");
         member=(CMember)memberDAO.read("member");
 	//과목개설
@@ -32,7 +34,7 @@ public class CMain {
 		CGwamokControl gwamokControl =new CGwamokControl();
 		gwamok = gwamokControl.processGwamok(gwamok);
 		
-		DAO gwamokDAO = new DAO();
+		IDAO gwamokDAO = new ObjectDAO();
 		gwamokDAO.write(gwamok,"gwamok");
 		
 		//부모클래스의 오브젝트를 자식클래스로 강제로 변경
@@ -43,7 +45,7 @@ public class CMain {
 		CGangjwaControl gangjwaControl =new CGangjwaControl();
 		gangjwa = gangjwaControl.processGangjwa(gangjwa);
 		
-		DAO gangjwaDAO = new DAO();
+		IDAO gangjwaDAO = new ObjectDAO();
 		gangjwaDAO.write(gangjwa,"gangjwa");
 		gangjwa=(CGangjwa) gwamokDAO.read("gangjwa");
 	

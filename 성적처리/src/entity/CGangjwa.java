@@ -3,7 +3,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Vector;
 
-public class CGangjwa implements Serializable{
+public class CGangjwa extends CEntity{
 	private static final long serialVersionUID = 1L;
 	private int ID;
 	private String name;
@@ -20,4 +20,9 @@ public class CGangjwa implements Serializable{
 	public void setTimes(Vector<String> times) {this.times = times;}
 	public int getGangjwaID() {return gangjwaID;}
 	public void setGangjwaID(int gangjwaID) {this.gangjwaID = gangjwaID;}
+	//속성들을 읽고쓰는 함수 오브젝트말고 엔티티로받기
+	void read(){}
+	void write(){
+		
+	}
 }
