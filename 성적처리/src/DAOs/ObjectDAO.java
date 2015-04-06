@@ -1,10 +1,12 @@
 package DAOs;
 import java.io.*;
 
+import entity.CEntity;
+
 public class ObjectDAO implements IDAO {
 	
-		public Object read(Class clazz, String filename) {
-			Object object=null;
+		public Object read(CEntity entity , String filename) {
+			Object object =null;
 			try {
 				ObjectInputStream in;
 				in=new ObjectInputStream(new FileInputStream(filename));
