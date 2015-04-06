@@ -21,8 +21,8 @@ public class CGangjwa extends CEntity{
 	public int getGangjwaID() {return gangjwaID;}
 	public void setGangjwaID(int gangjwaID) {this.gangjwaID = gangjwaID;}
 	//속성들을 읽고쓰는 함수 오브젝트말고 엔티티로받기
-	void read(){}
-	void write(){
+	public void read(){}
+	public void write(){
 		
 	}
 }
