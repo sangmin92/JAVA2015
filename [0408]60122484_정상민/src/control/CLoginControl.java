@@ -1,17 +1,25 @@
 package control;
-
-import java.util.Scanner;
-import java.util.Vector;
-
-import DAOs.TextDAO;
-import entity.CEntity;
-import entity.CMember;
+import entity.Clogininfo;
 
 public class CLoginControl extends CControl {
 
-	@Override
-	public CEntity process(CEntity entity) {
-		Vector<CEntity> list = ((TextDAO)dao).read(entity, "member.txt");
+	public Clogininfo login(Clogininfo logininfo) {
+		this.getDao().connect("member.txt"); // surround trycatch 로직컨컨트롤  아래꺼 try diconnect 얘도 getdao
+		whie(true){ 
+			CLogininfo logininfodao = new (Clogininfo)this.getdao().read();
+			if(logininfodao.getUserID()==logininfo.getUserID()){
+				if(logininfodao.getPassword()==logininfo.getPassword()){
+					logininfo.seteloginresult(eLoginesult.succees);
+				}
+			}
+		}
+		CLogininfo logininfo =(Clogininfo)this.getDao().read();
+		this.getDao().disconnect();
+		return logininfo;
+	
+		
+		
+		/*	Vector<CEntity> list = ((TextDAO)dao).read(entity, "member.txt");
 		Scanner scanner = new Scanner(System.in);
 		String searchid;
 		String searchpw;
@@ -35,5 +43,8 @@ public class CLoginControl extends CControl {
 		scanner.close();
 		System.out.println("해당 사용자 아이디가 없습니다. ");
 		return null;
+		*/
+		
+		
 	}
 }
